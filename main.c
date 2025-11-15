@@ -37,6 +37,11 @@ void printGame(int game[LENGHT][LENGHT])
 
 void game(void)
 {
+    if(LENGHT < 2){
+        printf("\x1b[31;1mThe size of the grid must be greater than 3 !\x1b[0m\n");
+        return;
+    }
+
     int game[LENGHT][LENGHT] = {{0}}, player = 1, row, column, is_occuped = 0, row_sum = 0, column_sum = 0, diago1_sum = 0, diago2_sum = 0, i, round = 0;
 
     printGame(game);
