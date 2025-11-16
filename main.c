@@ -18,15 +18,15 @@ void printGame(int game[LENGHT][LENGHT])
 
     printf("   ");
     for(j = 1 ; j <= LENGHT ; j++)
-        printf(" %d  ", j);
+        j >= 10 ? printf(" %d ", j) : printf("  %d ", j);
     printf("\n");
 
     for(i = 0 ; i < LENGHT ; i++){
-        printf("  ");
+        printf("   ");
 
         for(j = 0 ; j < LENGHT ; j++)
             printf("+---");
-        printf("+\n%d ", i + 1);
+        i + 1 >= 10 ? printf("+\n%d ", i + 1) : printf("+\n %d ", i + 1);
 
         for(j = 0 ; j < LENGHT ; j++){
             if(game[i][j] == 1)
@@ -38,7 +38,7 @@ void printGame(int game[LENGHT][LENGHT])
         }
         printf("|\n");
     }
-    printf("  ");
+    printf("   ");
     for(j = 0 ; j < LENGHT ; j++)
         printf("+---");
     printf("+\n");
