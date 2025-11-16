@@ -16,10 +16,18 @@ void printGame(int game[LENGHT][LENGHT])
     printf("\x1b[1;1H\x1b[2J");
     fflush(stdout);
 
+    printf("   ");
+    for(j = 1 ; j <= LENGHT ; j++)
+        printf(" %d  ", j);
+    printf("\n");
+
     for(i = 0 ; i < LENGHT ; i++){
+        printf("  ");
+
         for(j = 0 ; j < LENGHT ; j++)
-            printf("----");
-        printf("-\n");
+            printf("+---");
+        printf("+\n%d ", i + 1);
+
         for(j = 0 ; j < LENGHT ; j++){
             if(game[i][j] == 1)
                 printf("| %s ", O_PLAYER);
@@ -30,15 +38,16 @@ void printGame(int game[LENGHT][LENGHT])
         }
         printf("|\n");
     }
+    printf("  ");
     for(j = 0 ; j < LENGHT ; j++)
-        printf("----");
-    printf("-\n");
+        printf("+---");
+    printf("+\n");
 }
 
 void game(void)
 {
     if(LENGHT < 2){
-        printf("\x1b[31;1mThe size of the grid must be greater than 3 !\x1b[0m\n");
+        printf("\x1b[31;1mThe size of the grid must be greater than or equal to 2 !\x1b[0m\n");
         return;
     }
 
@@ -47,12 +56,7 @@ void game(void)
     printGame(game);
 
     while(1){
-        if(player == 1)
-            printf("Player %s turn\n", O_PLAYER);
-        else{
-            printf("Player %s turn\n", X_PLAYER);
-            player == -1;
-        } 
+        player == 1 ? printf("Player %s turn\n", O_PLAYER) : printf("Player %s turn\n", X_PLAYER);
         printf("Row : ");
         scanf("%d", &row);
         printf("Column : ");
@@ -109,6 +113,5 @@ void game(void)
 int main(void)
 {
     game();
-
     return 0;
 }
